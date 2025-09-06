@@ -1,23 +1,28 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>VR shapes</title>
+<title>zombie</title>
 <script src=
 "https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 <script src = "https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js" > </script>
-        <script src ="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js" > </script>
+<script src="https://cdn.jsdelivr.net/gh/wmurphyrd/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
+        <script src="index.js"></script>
 </head>
 <body>
-<a-scene background="color:green">
+<a-scene background="color:green"physics="gravity: -9">
 <a-assets>
     <a-asset-item src="zombie/scene.gltf" id ="zom"></a-asset-item>
     <a-asset-item src="invirement/radiation_environment/scene.gltf" id ="back"></a-asset-item>
+    <a-assets-item src="zombie2/zombie/scene.gltf" id="zom2" ></a-assets-item>
 </a-assets>
-<a-entity gltf-model="#back" position="0 0 -10"></a-entity>
-<a-entity gltf-model="#zom" position="6  2 -10" animation="property: position; to: 6 2 500; easing:linear; loop: true; dur:43000"></a-entity>
+<a-entity gltf-model="#back"position="0 0 -10"></a-entity>
+<a-entity gltf-model="#zom2"  gameplay static-body position="6  0 -100"animation-mixer scale="2 2 2" animation="property: position; to: 6 0 500; easing:linear; loop: true; dur:120000"></a-entity>
+<a-entity gltf-model="#zom2"  gameplay static-body position="12  0 -100"animation-mixer scale="2 2 2" animation="property: position; to: 6 0 500; easing:linear; loop: true; dur:120000"></a-entity>
+<a-entity gltf-model="#zom2"  gameplay static-body position="-7  0 -100"animation-mixer scale="2 2 2" animation="property: position; to: 6 0 500; easing:linear; loop: true; dur:120000"></a-entity>
+<a-entity gltf-model="#zom2"  gameplay static-body position="8  0 -5"animation-mixer scale="2 2 2" ></a-entity>
 
 
-<a-camera wasd-controls="fly:true:acceleration:500" position="0 0 0"></a-camera>
+<a-camera wasd-controls="fly:true:acceleration:500"  position="6 2 0"dynamic-body="mass: 1;shape:sphere; sphereRadius:0.5"></a-camera>
 </a-scene>
 </body>
 </html> 
